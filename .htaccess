@@ -1,0 +1,14 @@
+RewriteEngine On
+
+RewriteRule ^browse_(.*)_(.*)_(.*)_(.*).html index.php?action=browse&cat=$1&orderby=$2&sort=$3&start=$4
+RewriteRule ^browse_(.*).html index.php?action=browse&cat=$1
+
+RewriteRule ^style.css css.php
+
+
+RewriteRule ^news_(.*)_(.*).html index.php?action=news&date=$1&start=$2
+RewriteRule ^news_(.*).html index.php?action=news&id=$1
+
+RewriteRule ^details_(.*).html index.php?action=details&id=$1
+
+RewriteRule ^sitemap.xml sitemap.php
