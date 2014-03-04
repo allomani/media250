@@ -23,7 +23,7 @@ $qr = db_query("select content from mobile_templates where name like '$name' and
     $templates_cache[$name] = $data['content'];
     unset($data);
    }else{
-   $content =  "<b>Error : </b> Template ".htmlspecialchars($name)." Not Exists <br>";
+   $content =  "<b>Error : </b> Template ".html_encode_chars($name)." Not Exists <br>";
        }
 }
 
@@ -127,15 +127,15 @@ $title_sub = "$data[title]" ;
 if($action == "search" && $keyword){
 
 $title_sub = $phrases['the_search'] ;
-$meta_description = htmlspecialchars($keyword);
-$keys_arr = explode(" ",htmlspecialchars($keyword));
+$meta_description = html_encode_chars($keyword);
+$keys_arr = explode(" ",html_encode_chars($keyword));
 if(count($keys_arr)){
     foreach($keys_arr as $value){
     $meta_keywords .= $value.",";
     }
     unset($keys_arr);
 }else{
-    $meta_keywords = htmlspecialchars($keyword);
+    $meta_keywords = html_encode_chars($keyword);
 }    
 
  }

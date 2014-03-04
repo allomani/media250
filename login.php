@@ -1,7 +1,7 @@
 <?
 require("global.php") ;
 
-   $re_link = htmlspecialchars($re_link);
+   $re_link = html_encode_chars($re_link);
  
 if($action=="login"){
 

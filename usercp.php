@@ -104,7 +104,7 @@ db_query("delete from mobile_msgs where id='$id' and user='$member_data[id]'");
 
          print "<tr bgcolor='$tr_color'><td height=30><a href='usercp.php?action=msg_view&id=$data[id]'>
          $data[sender]</a></td>
-         <td align=center><a href='usercp.php?action=msg_view&id=$data[id]'>".htmlspecialchars($data['title'])."</a></td>
+         <td align=center><a href='usercp.php?action=msg_view&id=$data[id]'>".html_encode_chars($data['title'])."</a></td>
          <td align=center> $data[date]</td>
          <td align=center><a href='usercp.php?action=msg_del&id=$data[id]' onclick=\"return confirm('".$phrases['are_you_sure']."')\" >$phrases[delete]</a></td></tr>";
               }
@@ -126,7 +126,7 @@ if($action=="msg_view"){
    print "<table width=100%>
    <tr><td width=7%><b>  $phrases[the_sender] : </b></td><td>$data[sender]</td></tr>
    <tr><td><b> $phrases[the_date] : </b></td><td>$data[date]</td></tr>
-   <tr><td><b> $phrases[the_subject] :</b> </td><td>".htmlspecialchars($data['title'])."</td></tr>
+   <tr><td><b> $phrases[the_subject] :</b> </td><td>".html_encode_chars($data['title'])."</td></tr>
    <tr><td colspan=2 height=25 align=center><a href='usercp.php?action=msg_reply&msg_id=$data[id]'><img alt='$phrases[reply]' src='images/mail_send.gif' border=0></a> &nbsp;&nbsp;
    <a href='usercp.php?action=msg_snd'><img src='images/mail_write.gif' alt=' $phrases[send_new_msg]' border=0> </a> &nbsp;&nbsp;
     <a href=\"usercp.php?action=msg_del&id=$data[id]\" onclick=\"return confirm('$phrases[are_you_sure]');\"><img src='images/del.gif' alt='$phrases[delete]' border=0></a>
@@ -134,7 +134,7 @@ if($action=="msg_view"){
    </td></tr>
    <tr><td colspan=2 align=center>
    <table width=96%><tr bgcolor='#FFFFFF'><td>
-   <pre class=messages>".htmlspecialchars($data['content'])."</pre>
+   <pre class=messages>".html_encode_chars($data['content'])."</pre>
    </td></tr></table>
    </td></tr></table>";
           }else{

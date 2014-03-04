@@ -13,9 +13,9 @@ $id = intval($id);
 
 open_table("$phrases[send2friend]");
 if($name_from && $email_from && $email_to){
- $name_from = htmlspecialchars($name_from) ;
- $email_from = htmlspecialchars($email_from) ;
- $email_to = htmlspecialchars($email_to) ;
+ $name_from = html_encode_chars($name_from) ;
+ $email_from = html_encode_chars($email_from) ;
+ $email_to = html_encode_chars($email_to) ;
    
 $url = $scripturl."/".get_template('links_details','{id}',$id)  ;
 

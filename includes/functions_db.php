@@ -11,7 +11,7 @@ return intval($str);
 }elseif($type=="text"){
 
 if($op=="write"){
-return db_escape_string(htmlspecialchars($str));
+return db_escape_string(html_encode_chars($str));
 }else{
 return db_escape_string($str);
 }

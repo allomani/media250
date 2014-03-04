@@ -9,7 +9,7 @@ function print_comments_table($fileid){
 
           if($sec_img->verify_string($sec_string)){
 
-       $content = htmlspecialchars($content);
+       $content = html_encode_chars($content);
     $memberid =  $member_data['id'] ;
 
             db_query("insert into mobile_files_comments (memberid,content,fileid,date) values('$memberid','$content','$id',now())");
@@ -64,7 +64,7 @@ function print_send_comments_table($fileid){
    print "<form action='index.php' method=post>
    <table width=100% border=0>
    <input type=hidden name=id value='".intval($id)."'>
-   <input type=hidden name=action value='".htmlspecialchars($action)."'>
+   <input type=hidden name=action value='".html_encode_chars($action)."'>
     <input type=hidden name=op_comment value='send_comment'>
 
  <tr><td><b> $phrases[the_comment] : </b></td><td><textarea cols=30 rows=5 name=content>$content</textarea></td></tr>

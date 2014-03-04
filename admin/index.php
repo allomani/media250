@@ -498,7 +498,7 @@ if($action == "edit_block"){
 
     if_admin();
   $data=db_qr_fetch("select * from mobile_blocks where id='$id'");
-      $data['file'] = htmlspecialchars($data['file']) ;
+      $data['file'] = html_encode_chars($data['file']) ;
 
  print " <center><table border=\"0\" width=\"60%\"  class=\"grid\" >
 
@@ -1128,7 +1128,7 @@ $phrases[members_local_db_clean_note]
 //------------------------------- Email Members -----------------------------------
 if($action=="members_mailing"){
 if_admin("members");
-$username = htmlspecialchars($username) ; 
+$username = html_encode_chars($username) ; 
 print "<p align=center class=title> $phrases[members_mailing] </p><br>" ;
 
  print "<center><iframe src='mailing.php?username=$username' width=95% height=90%  border=0 frameborder=0></iframe></center>";
@@ -2094,7 +2094,7 @@ print "<center>
 $qr = db_query("select * from mobile_templates where id='$id'");
       if(db_num($qr)){
       $data = db_fetch($qr);
-    $data['content'] = htmlspecialchars($data['content']);
+    $data['content'] = html_encode_chars($data['content']);
 print "
   <center>
           <span class=title>$data[name]</span>  <br><br>
@@ -2198,7 +2198,7 @@ $data = db_qr_fetch("select * from mobile_types where name='default'");
       data_fields='".db_clean_string($data['data_fields'])."' where id='".intval($tid)."'");
 
 }else{
-print "<center><table width=50% class=grid><tr><td align=center><b>".str_replace("{name}",htmlspecialchars($name),$phrases['err_type_name_exists'])."</td></tr></table></center>";
+print "<center><table width=50% class=grid><tr><td align=center><b>".str_replace("{name}",html_encode_chars($name),$phrases['err_type_name_exists'])."</td></tr></table></center>";
 }
 }
 }
@@ -2253,13 +2253,13 @@ print "
   <tr>
   <td> <b> $phrases[the_title] : </b></td><td><input type=text size=30 name=title value='$data[title]'></td></tr>
    <tr><td><b>$phrases[the_header] : </b></td><td>
-        <textarea dir=ltr rows=\"10\" name=\"header\" cols=\"70\">".htmlspecialchars($data['header'])."</textarea></td></tr>
+        <textarea dir=ltr rows=\"10\" name=\"header\" cols=\"70\">".html_encode_chars($data['header'])."</textarea></td></tr>
 
 <tr><td><b>$phrases[the_content] : </b></td><td>
-        <textarea dir=ltr rows=\"20\" name=\"content\" cols=\"70\">".htmlspecialchars($data['content'])."</textarea></td></tr>
+        <textarea dir=ltr rows=\"20\" name=\"content\" cols=\"70\">".html_encode_chars($data['content'])."</textarea></td></tr>
 
         <tr><td><b>$phrases[the_footer] : </b></td><td>
-        <textarea dir=ltr rows=\"10\" name=\"footer\" cols=\"70\">".htmlspecialchars($data['footer'])."</textarea></td></tr>
+        <textarea dir=ltr rows=\"10\" name=\"footer\" cols=\"70\">".html_encode_chars($data['footer'])."</textarea></td></tr>
 
         <tr>
   <td> <b> $phrases[objects_count_perpage] : </b></td><td><input type=text size=3 name=perpage value='$data[perpage]'></td></tr>
@@ -2272,7 +2272,7 @@ print "
  
 print "<tr><td><b> $phrases[spect_between_objects] </b></td><td><input name=loop_spect type=\"radio\" value=\"1\" $chk1> $phrases[yes] <input name=loop_spect type=\"radio\" value=\"0\" $chk2> $phrases[no]</tr>
 <tr><td><b>$phrases[spect_content] : </b></td><td>
-        <textarea dir=ltr rows=\"10\" name=\"spect_content\" cols=\"70\">".htmlspecialchars($data['spect_content'])."</textarea></td></tr>
+        <textarea dir=ltr rows=\"10\" name=\"spect_content\" cols=\"70\">".html_encode_chars($data['spect_content'])."</textarea></td></tr>
 <tr><td><b>$phrases[print_every] </b></td><td><input type=text name=spect_period value=\"$data[spect_period]\" size=3> $phrases[object] </td></tr>
 </table>
 </fieldset>
@@ -2286,7 +2286,7 @@ print "<tr><td><b> $phrases[spect_between_objects] </b></td><td><input name=loop
 <tr><td><b>$phrases[file_name] </b></td><td>
         <input type=text name=\"preview_filename\" value=\"$data[preview_filename]\" size=20 dir=ltr></td></tr>
 <tr><td><b>$phrases[file_content] : </b></td><td>
-        <textarea dir=ltr rows=\"10\" name=\"preview_filedata\" cols=\"70\">".htmlspecialchars($data['preview_filedata'])."</textarea></td></tr>
+        <textarea dir=ltr rows=\"10\" name=\"preview_filedata\" cols=\"70\">".html_encode_chars($data['preview_filedata'])."</textarea></td></tr>
         <tr><td><b> $phrases[file_url] </b></td><td dir=ltr align=$global_align>".'getfile.php?action=preview&id=$data[id]'."</td></tr>
 </table></fieldset>
 
@@ -2295,7 +2295,7 @@ print "<tr><td><b> $phrases[spect_between_objects] </b></td><td><input name=loop
 <legend>$phrases[details_page]</legend>
 <table width=100%>
 <tr><td><b>$phrases[the_content] </b></td><td>
-        <textarea dir=ltr rows=\"20\" name=\"details_page\" cols=\"70\">".htmlspecialchars($data['details_page'])."</textarea></td></tr>
+        <textarea dir=ltr rows=\"20\" name=\"details_page\" cols=\"70\">".html_encode_chars($data['details_page'])."</textarea></td></tr>
         <tr><td><b> $phrases[page_url] </b></td><td dir=ltr align=center>".'index.php?action=details&id=$data[id]'."</td></tr>
 </table></fieldset>
 
@@ -3909,7 +3909,7 @@ if($action == "edit_pages"){
               if($use_editor_for_pages){
             editor_print_form("content",600,300,"$data[content]");
                 }else{
-                print "<textarea cols=60 rows=10 name='content' dir=ltr>".htmlspecialchars($data['content'])."</textarea>"; 
+                print "<textarea cols=60 rows=10 name='content' dir=ltr>".html_encode_chars($data['content'])."</textarea>"; 
                 }
                 
                 
@@ -4606,7 +4606,7 @@ print "</td></tr>
   <tr>
               <td width=\"70\">
                 <b>$phrases[the_code]</b></td><td width=\"223\">
-                  <textarea name='code' rows=20 cols=45 dir=ltr >".htmlspecialchars($data['code'])."</textarea></td>
+                  <textarea name='code' rows=20 cols=45 dir=ltr >".html_encode_chars($data['code'])."</textarea></td>
                         </tr>
 <tr><td><b>$phrases[the_order]</b></td><td><input type=text size=3 name=ord value=\"$data[ord]\"></td></tr>
 <tr><td colspan=2 align=center><input type=submit value=' $phrases[edit] '></td></tr>
@@ -4618,7 +4618,7 @@ print "<center><table width=50% class=grid><tr><td align=center>$phrases[err_wro
 }
 //------------------- DATABASE BACKUP --------------------------
 if($action=="backup_db_do"){
-     $output = htmlspecialchars($output) ; 
+     $output = html_encode_chars($output) ; 
 print "<br><center> <table width=50% class=grid><tr><td align=center>  $output </td></tr></table>";
 }
 
@@ -4958,7 +4958,7 @@ if($action=="phrases_update"){
                 }
 
 if($group){
-   $group = htmlspecialchars($group);
+   $group = html_encode_chars($group);
 $cat_data = db_qr_fetch("select name from mobile_phrases_cats where id='$group'");
 
 print "<p align=$global_align><img src='images/link.gif'><a href='index.php?action=phrases'>$phrases[the_phrases] </a> / $cat_data[name]</p>";

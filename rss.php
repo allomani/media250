@@ -14,7 +14,7 @@ print "<copyright>$settings[copyrights_sitename]</copyright>";
 <?
 
 if($type){
-	$type = htmlspecialchars($type) ;
+	$type = html_encode_chars($type) ;
 $qr = db_query("select mobile_data.* from mobile_data,mobile_cats where mobile_cats.type='$type' and mobile_data.cat=mobile_cats.id order by mobile_data.id DESC limit 200");
        }else{
 $qr = db_query("select * from mobile_data order by id desc limit 200");

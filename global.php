@@ -451,7 +451,7 @@ function check_safe_functions($condition_value){
 
                                         foreach($functions AS $error)
                                         {
-                                                $errormsg .= "$phrases[err_function_usage_denied]: <code>" . htmlspecialchars($error['func']) . "</code>
+                                                $errormsg .= "$phrases[err_function_usage_denied]: <code>" . html_encode_chars($error['func']) . "</code>
                                                 <br>\n";
                                         }
 
@@ -938,10 +938,10 @@ function check_email_address($email) {
 //---------------------- Send Email Function -------------------
 function send_email($from_name,$from_email,$to_email,$subject,$msg,$html=0,$encoding=""){
         global $PHP_SELF,$smtp_settings,$settings ;
-   // $from_name = htmlspecialchars($from_name);
-  //  $from_email = htmlspecialchars($from_email);
-   // $to_email = htmlspecialchars($to_email);
-    //$subject = htmlspecialchars($subject);
+   // $from_name = html_encode_chars($from_name);
+  //  $from_email = html_encode_chars($from_email);
+   // $to_email = html_encode_chars($to_email);
+    //$subject = html_encode_chars($subject);
    // $msg=htmlspecialchars($msg);
 
 
@@ -1430,6 +1430,11 @@ function convert_number_format($number, $decimals = 0, $bytesize = false, $decim
          return str_replace('_', '&nbsp;', round($number,$decimals)) . $type;
     }
 }
+
+function html_encode_chars($text){
+    return htmlspecialchars($text,NULL,"cp1252");
+}
+
 //--------------- Load Global Plugins --------------------------
 $dhx = opendir(CWD ."/plugins");
 while ($rdx = readdir($dhx)){

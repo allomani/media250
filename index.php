@@ -767,7 +767,7 @@ compile_hook('news_outside_end');
 // ---------------------- SEARCH --------------------------------
 if($action == "search"){
 if($settings['enable_search']){
-$keyword = htmlspecialchars($keyword);
+$keyword = html_encode_chars($keyword);
 $types_x=$types;
 
 compile_hook('search_start');
@@ -991,11 +991,11 @@ open_table("$phrases[register]");
 
 
 //---------- filter fields -----------------
-$email = htmlspecialchars($email);
-$email_confirm = htmlspecialchars($email_confirm);
-$username = htmlspecialchars($username);
-$password = htmlspecialchars($password);
-$re_password = htmlspecialchars($re_password);
+$email = html_encode_chars($email);
+$email_confirm = html_encode_chars($email_confirm);
+$username = html_encode_chars($username);
+$password = html_encode_chars($password);
+$re_password = html_encode_chars($re_password);
 
 /*
 //--------- filter custom_id fields --------------
@@ -1355,7 +1355,7 @@ $data = db_fetch($qr);
         }
 //------------------------ Members Login ---------------------------
  if($action=="login"){
-    $re_link = htmlspecialchars($re_link) ;
+    $re_link = html_encode_chars($re_link) ;
 
          open_table();
 print "<form method=\"POST\" action=\"login.php\">
