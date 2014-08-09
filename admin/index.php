@@ -2733,6 +2733,8 @@ case substr($auto_url_field,0,7)=="custom_" : $custom_value[substr($auto_url_fie
 
 
 $auto_name_value = basename($new_files_list[$i]);
+$auto_name_value = str_replace(file_extension($auto_name_value),"",$auto_name_value);
+
 switch ($auto_name_field){
 case "name" : $name_value = $auto_name_value;break;
 case "url" : $url_value = $auto_name_value;break;
