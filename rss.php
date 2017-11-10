@@ -1,5 +1,17 @@
 <?
-header('Content-type: text/xml');
+/**
+ *  Allomani Media v2.5
+ * 
+ * @package Allomani.Media
+ * @version 2.5
+ * @copyright (c) 2006-2017 Allomani , All rights reserved.
+ * @author Ali Allomani <info@allomani.com>
+ * @link http://allomani.com
+ * @license GNU General Public License version 3.0 (GPLv3)
+ * 
+ */
+
+ header('Content-type: text/xml');
 include "global.php" ;
 print "<?xml version=\"1.0\" encoding=\"$settings[site_pages_encoding]\" ?> \n";
 ?>

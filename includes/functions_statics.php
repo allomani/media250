@@ -1,5 +1,17 @@
 <?
-function get_statics_info($sql,$count_name,$count_data){
+/**
+ *  Allomani Media v2.5
+ * 
+ * @package Allomani.Media
+ * @version 2.5
+ * @copyright (c) 2006-2017 Allomani , All rights reserved.
+ * @author Ali Allomani <info@allomani.com>
+ * @link http://allomani.com
+ * @license GNU General Public License version 3.0 (GPLv3)
+ * 
+ */
+
+ function get_statics_info($sql,$count_name,$count_data){
 
 global $if_img,$year,$global_align ;
 
